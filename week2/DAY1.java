@@ -32,15 +32,13 @@ public class DAY1{
         //tc=O(n) & sc=O(1)
         if(ransomNote.length()>magazine.length()) return false;
         int[] f1 = new int[26];
-        int[] f2 = new int[26];
         for(int i=0;i<magazine.length();i++){
             f1[magazine.charAt(i)-'a']++;
         }
+        
         for(int i=0;i<ransomNote.length();i++){
-            f2[ransomNote.charAt(i)-'a']++;
-        }
-        for(int i=0;i<ransomNote.length();i++){
-            if(f2[ransomNote.charAt(i)-'a']>f1[ransomNote.charAt(i)-'a']) return false;
+            f1[ransomNote.charAt(i)-'a']--;
+            if(f1[ransomNote.charAt(i)-'a']<0) return false;
         }
         return true;
     }
