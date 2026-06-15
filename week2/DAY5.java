@@ -9,9 +9,9 @@ public class DAY5{
     public List<List<String>> groupAnagrams(String[] strs) {
         //tc = O(n*k) & sc=O(n)
         Map<String,List<String>> m = new HashMap<>();
-        for(int i=0;i<strs.length;i++){
+        for (String str : strs) {
             int[] freq = new int[26];
-            String s = strs[i];
+            String s = str;
             for(char c : s.toCharArray()){
                 freq[c-'a']++;
             }
